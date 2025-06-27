@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swap Values</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .main {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    form {
+      width: 90%;
+      max-width: 400px;
+      background-color: blue;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 2px 2px 4px black;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      form {
+        padding: 20px;
+      }
+
+      input, button {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <form>
+      <h2>Swap Values</h2>
+      <input type="text" placeholder="Enter first number" id="first" /><br />
+      <input type="text" placeholder="Enter Second number" id="second" /><br />
+      <button type="button" id="swap">Swap</button>
+      <button type="reset">Clear</button>
+    </form>
+  </div>
+
+  <script>
+    const x = document.getElementById('first');
+    const y = document.getElementById('second');
+    const z = document.getElementById('swap');
+
+    z.addEventListener('click', function () {
+        if(x.value.trim()=== '' || y.value.trim()=== '' )
+        {
+            alert("Please enter both numbers before swapping.")
+        }
+        else{
+            const temp = x.value;
+            x.value = y.value;
+            y.value = temp;
+        }
+      
+    });
+  </script>
+</body>
+</html>
