@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Number Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    button {
+      font-size: 20px;
+      margin: 10px 8px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #num {
+      background-color: #3498db;
+      color: white;
+      cursor: default;
+    }
+
+    #plus {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    #minus {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    #reset {
+      background-color: #95a5a6;
+      color: white;
+    }
+
+    button:hover:not(#num) {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      form {
+        width: 90%;
+        padding: 20px;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 10px 16px;
+        margin: 8px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h1>Counter Tool</h1>
+    <button type="button" id="num">0</button> <br>
+    <button type="button" id="plus">+</button>
+    <button type="button" id="minus">-</button> <br>
+    <button type="reset" id="reset">Reset</button>
+  </form>
+
+  <script>
+    let x = document.getElementById('plus');
+    let y = document.getElementById('minus');
+    let z = document.getElementById('num');
+    let reset = document.getElementById('reset');
+
+    x.addEventListener('click', function () {
+      z.innerHTML = parseInt(z.innerHTML) + 1;
+    });
+
+    y.addEventListener('click', function () {
+      z.innerHTML = parseInt(z.innerHTML) - 1;
+    });
+
+    reset.addEventListener('click', function () {
+      z.innerHTML = 0;
+    });
+  </script>
+</body>
+</html>
