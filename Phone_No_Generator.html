@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Phone Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e0f7e9; /* mint green */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #ffe5b4; /* soft peach */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fffbe6;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff7f50; /* coral */
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e85c33;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <h1>Random Indian Phone Number</h1>
+    <input type="text" id="display" value="" readonly />
+    <button id="submit">Generate</button>
+    <button id="copy">Copy</button>
+    <button type="reset">Clear</button>
+  </form>
+
+  <script>
+    function generatePhoneNumber() {
+      let start = ['6', '7', '8', '9'];
+      let phone = start[Math.floor(Math.random() * start.length)];
+      for (let i = 0; i < 9; i++) {
+        phone += Math.floor(Math.random() * 10);
+      }
+      return phone;
+    }
+
+    let x = document.getElementById('submit');
+    let y = document.getElementById('display');
+    x.addEventListener('click', function (e) {
+      e.preventDefault();
+      y.value = "+91 " + generatePhoneNumber();
+    });
+    let copy=document.getElementById('copy')
+    copy.addEventListener('click',function(e) {
+        e.preventDefault();
+        if(y.value.trim()==''){
+            alert('No number to copy!');
+            return
+        }
+       navigator.clipboard.writeText(y.value )
+       if(navigator.clipboard.writeText()!='' ){
+        alert("Copied to clipboard!")
+       }
+       
+    });
+  </script>
+</body>
+</html>
