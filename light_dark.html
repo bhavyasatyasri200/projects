@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        #light,#dark{
+           width: 20px;
+           height: 20px;
+            border-radius: 50%;
+            border: none;
+            margin-left: 2px;
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            
+        }
+        body{
+            background-color: white;
+        }
+        #text{
+            border: 1px solid black;
+            border-top-right-radius: 5px;
+             border-bottom-right-radius: 5px;
+            background-color: white;
+            color: black;
+            display: inline-block;
+            width: 45px;
+            text-align: right;
+        }
+        #light{
+            position: relative;
+            left: 8px;
+            background-color: rgb(15, 11, 11);
+            
+        }
+        #dark{
+            position: relative;
+            right: 10px;
+            background-color: white;
+            display: none;
+        }
+        .moon{
+            position: relative;
+            right: 6px;
+            bottom: 2px;
+        }
+        .sun{
+            position: relative;
+            right: 5px;
+            bottom: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main"> 
+        <button id="light">
+            <div class="sun">🌞</div>
+        </button>
+        <button id="text">Dark</button>
+        <button id="dark"> 
+           <div class="moon">🌙</div>
+        </button>
+    </div>
+</body>
+<script>
+    let main
+    let light=document.getElementById('light')
+    let dark=document.getElementById('dark')
+    let text=document.getElementById('text')
+    let body=document.body;
+    light.addEventListener('click',function(){
+        body.style.backgroundColor ='black'
+        light.style.display='none'
+        text.style.borderTopLeftRadius='5px';
+        text.style.borderBottomLeftRadius='5px'
+        text.style.borderBottomRightRadius='0px'
+        text.style.borderTopRightRadius='0px'
+        dark.style.display='inline'
+        text.innerHTML='Light'
+        text.style.backgroundColor='black'
+        text.style.color='white'
+        text.style.borderColor='white'
+        text.style.textAlign='left'
+        text.style.marginLeft='15px'
+       
+    })
+    dark.addEventListener('click',function(){
+        body.style.backgroundColor='white'
+        dark.style.display='none'
+        text.style.borderTopLeftRadius='0px';
+        text.style.borderBottomLeftRadius='0px'
+        text.style.borderBottomRightRadius='5px'
+        text.style.borderTopRightRadius='5px'
+        light.style.display='inline'
+        text.innerHTML='Dark'
+        text.style.backgroundColor='white'
+        text.style.color='black'
+        text.style.borderColor='black'
+        text.style.textAlign='right'
+        text.style.marginLeft='0px'
+    })
+</script>
+
+</html>
