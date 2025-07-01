@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Light/Dark Toggle</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: white;
+      transition: background-color 0.5s ease;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    #light, #dark {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+     
+    }
+    
+
+    #light {
+      background-color: lightgray;
+      position: relative;
+      left: 20px;
+    }
+
+    #dark {
+      background-color: #e0e0e0;
+      display: none;
+      position: relative;
+      right: 20px;
+    }
+
+    #text {
+      border: 2px solid black;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: white;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      min-width: 80px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <button id="light">🌞</button>
+    <button id="text">Dark</button>
+    <button id="dark">🌙</button>
+  </div>
+
+  <script>
+    let main
+    let light = document.getElementById('light')
+    let dark = document.getElementById('dark')
+    let text = document.getElementById('text')
+    let body = document.body;
+
+    light.addEventListener('click', function () {
+      body.style.backgroundColor = 'black'
+      light.style.display = 'none'
+      text.style.borderTopLeftRadius = '10px';
+      text.style.borderBottomLeftRadius = '10px'
+      text.style.borderBottomRightRadius = '0px'
+      text.style.borderTopRightRadius = '0px'
+      dark.style.display = 'inline-flex'
+      text.innerHTML = 'Light'
+      text.style.backgroundColor = 'black'
+      text.style.color = 'white'
+      text.style.borderColor = 'white'
+      text.style.textAlign = 'left'
+      text.style.marginLeft = '15px'
+    })
+
+    dark.addEventListener('click', function () {
+      body.style.backgroundColor = 'white'
+      dark.style.display = 'none'
+      text.style.borderTopLeftRadius = '0px';
+      text.style.borderBottomLeftRadius = '0px'
+      text.style.borderBottomRightRadius = '10px'
+      text.style.borderTopRightRadius = '10px'
+      light.style.display = 'inline-flex'
+      text.innerHTML = 'Dark'
+      text.style.backgroundColor = 'white'
+      text.style.color = 'black'
+      text.style.borderColor = 'black'
+      text.style.textAlign = 'right'
+      text.style.marginLeft = '0px'
+    })
+  </script>
+</body>
+</html>
