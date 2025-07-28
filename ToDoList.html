@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <input type="text" placeholder="Enter Text" id="input">
+    <button id="add">Add</button> <br>
+    <div class="taskholder"></div>
+    <script>
+        addEventListener('onclick',function(e){
+            e.preventDefault();
+
+            let distance=document.createElement('input');
+            div.style.marginBottom='10px'; 
+
+            let text=document.createElement('text');
+            text.type='text';
+            text.value=input.value;
+
+            let del=document.createElement('delete');
+            del.textContent='Delete';
+
+            del.addEventListener('onclick',function(){
+                del.removeChild('delete');
+            })
+            distance.appendChild='text'
+            distance.appendChild='del';
+            taskholder.appendChild='distance'
+
+        });
+        input.value='';
+    </script>
+</body>
+</html>
