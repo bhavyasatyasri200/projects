@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Do List</title>
+  <style>
+    body {
+      background-color: turquoise;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .main-container {
+      max-width: 320px;
+      margin: auto;
+    }
+
+    .input-container, .task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    button {
+      padding: 6px 12px;
+      font-size: 16px;
+      background-color: white;
+      border: 1px solid black;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.1s;
+    }
+
+    button:hover {
+      background-color: #d3d3d3;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <h1>To Do List</h1>
+
+  <div class="main-container">
+    <div class="input-container">
+      <input type="text" id="input" placeholder="Enter task">
+      <button id="add">Add</button>
+    </div>
+
+    <div id="taskContainer"></div>
+  </div>
+
+  <script>
+    let input = document.getElementById('input');
+    let add = document.getElementById('add');
+    let taskContainer = document.getElementById('taskContainer');
+
+    add.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (input.value.trim() === '') return;
+
+      let taskDiv = document.createElement('div');
+      taskDiv.className = 'task';
+
+      let display = document.createElement('input');
+      display.type = 'text';
+      display.value = input.value;
+      display.readOnly = true;
+
+      let del = document.createElement('button');
+      del.textContent = 'Delete';
+
+      del.addEventListener('click', function () {
+        taskContainer.removeChild(taskDiv);
+      });
+
+      taskDiv.appendChild(display);
+      taskDiv.appendChild(del);
+      taskContainer.appendChild(taskDiv);
+      input.value = '';
+    });
+  </script>
+</body>
+</html>
