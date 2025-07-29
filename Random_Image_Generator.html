@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Image Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: #f8f9fa;
+      margin: 0;
+    }
+    #flower-box {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+    img {
+      max-width: 350px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: #e83e8c;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #c82368;
+    }
+  </style>
+</head>
+<body>
+  <div id="flower-box">
+    <img id="flower" src="" alt="Flower">
+    <br>
+    <button id="new-flower">Random Image</button>
+  </div>
+
+  <script>
+    const flowerImg = document.getElementById("flower");
+    const newFlowerBtn = document.getElementById("new-flower");
+    function getRandomFlower() {
+      const randomNum = Math.floor(Math.random() * 1000);
+      flowerImg.src = `https://picsum.photos/400/400?random=${randomNum}`;
+    }
+    getRandomFlower();
+    newFlowerBtn.addEventListener("click", getRandomFlower);
+  </script>
+</body>
+</html>
